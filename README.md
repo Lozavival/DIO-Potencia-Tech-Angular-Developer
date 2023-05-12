@@ -1,6 +1,6 @@
 # DIO - Potência Tech Angular Developer
 
-Anotações feitas durante os cursos e desafios resolvidos durante o Bootcamp "Potência Tech Angular Developer", oferecido pela [DIO](https://www.dio.me/) em parceria com iFood.
+Anotações feitas durante os cursos e desafios resolvidos durante o Bootcamp "Angular Developer", oferecido pela [DIO](https://www.dio.me/) e patrocinado pela Potência Tech em conjunto com iFood.
 
 ## Conteúdo do Bootcamp
 
