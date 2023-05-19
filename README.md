@@ -12,4 +12,4 @@ Anotações feitas durante os cursos e desafios resolvidos durante o Bootcamp "A
 ## Estrutura de Pastas
 
 - `anotações`: arquivos Markdown contendo as anotações feitas com base nas aulas do bootcamp;
-- `códigos`: resolução dos desafios de código propostos ao longo do bootcamp.
+- `códigos`: resolução dos exercícios de treino e desafios de código propostos ao longo do bootcamp.

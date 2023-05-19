@@ -25,7 +25,7 @@ if (media < 5) {
 }
 
 /*
-    2) O IMC – Indice de Massa Corporal é um critério da Organização Mundial de Saúde para dar uma indicação sobre a condição de peso de uma pessoa adulta. 
+    2) O IMC – Índice de Massa Corporal é um critério da Organização Mundial de Saúde para dar uma indicação sobre a condição de peso de uma pessoa adulta. 
 
     Formula do IMC:
     IMC = peso / (altura * altura)
@@ -37,13 +37,13 @@ if (media < 5) {
     - Entre 18.5 e 25 Peso normal;
     - Entre 25 e 30 Acima do peso;
     - Entre 30 e 40 Obeso;
-    - Acima de 40 Obsesidade Grave;
+    - Acima de 40 Obesidade Grave;
 */
 
 const peso = 48;
 const altura = 1.64;
 
-const imc = peso / (altura**2);
+const imc = peso / Math.pow(altura, 2);
 if (imc < 18.5) {
     console.log('Abaixo do peso');
 } else if (imc < 25) {
@@ -61,22 +61,22 @@ if (imc < 18.5) {
     Utilize os códigos da tabela a seguir para ler qual a condição de pagamento escolhida e efetuar o cálculo adequado.
 
     Código Condição de pagamento:
-    - À vista Débito, recebe 10% de desconto;
-    - À vista no Dinheiro ou PIX, recebe 15% de desconto;
-    - Em duas vezes, preço normal de etiqueta sem juros;
-    - Acima de duas vezes, preço normal de etiqueta mais juros de 10%;
+    1 - À vista Débito, recebe 10% de desconto;
+    2 - À vista no Dinheiro ou PIX, recebe 15% de desconto;
+    3 - Em duas vezes, preço normal de etiqueta sem juros;
+    4 - Acima de duas vezes, preço normal de etiqueta mais juros de 10%;
 */
 
-const precoNormal = 59.99;
-const condicaoPagamento = 'Em duas vezes';
+const precoEtiqueta = 59.99;
+const condicaoPagamento = 3;
 
 let precoAPagar;
-if (condicaoPagamento === 'À vista Débito') {
-    precoAPagar = precoNormal * 0.9;
-} else if (condicaoPagamento === 'À vista no Dinheiro' || condicaoPagamento === 'À vista PIX') {
-    precoAPagar = precoNormal * 0.85;
-} else if (condicaoPagamento === 'Em duas vezes') {
-    precoAPagar = precoNormal
+if (condicaoPagamento === 1) {
+    precoAPagar = precoEtiqueta * 0.9;
+} else if (condicaoPagamento === 2) {
+    precoAPagar = precoEtiqueta * 0.85;
+} else if (condicaoPagamento === 3) {
+    precoAPagar = precoEtiqueta;
 } else {
-    precoAPagar = precoNormal * 1.1;
+    precoAPagar = precoEtiqueta * 1.1;
 }
