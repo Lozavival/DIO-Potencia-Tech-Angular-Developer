@@ -621,13 +621,51 @@ fetch(url)
 
 #### Manipulando HTML pelo JavaScript
 
+Para acessar um elemento do HTML no código JavaScript (e armazená-lo em uma variável, por exemplo), utilizamos o método `document.getElementById()`. Para adicionar manipular dinamicamente esse elemento e adicionar filhos a ele, concatenamos a mudança desejada com seu atributo `innerHTML`, como no exemplo abaixo:
+
+```js
+const myList = document.getElementById('myList')
+myList.innerHTML += '<p>Esse parágrafo foi adicionado pelo JavaScript!!!</p>'
+```
+
+Para remover um elemento do HTML, utilizamos o seguinte comando (supondo que `elemento` seja uma variável que armazena o elemento que desejamos remover):
+
 ```js
 element.parent.removeChild(element)
 ```
 
 #### Manipulando Múltiplas Requisições em Paralelo
 
-Promise.all()
+Quando precisamos fazer várias ao mesmo tempo (por exemplo, requisitar informações detalhadas de cada elemento de uma lista), utilizamos o método `Promise.all()`, que recebe um array de *promises* e cujo método `then()` só será executado quando todas as promessas terminarem (com os resultados de todas):
+
+```js
+Promise.all([
+    fetch('https://pokeapi.co/api/v2/pokemon/1').then((response) => response.json()),
+    fetch('https://pokeapi.co/api/v2/pokemon/2').then((response) => response.json()),
+    fetch('https://pokeapi.co/api/v2/pokemon/3').then((response) => response.json()),
+    fetch('https://pokeapi.co/api/v2/pokemon/4').then((response) => response.json())
+]).then((results) => console.log(results))
+```
+
+Fazendo um exemplo mais complexo:
+
+```js
+function getPokemonDetail(pokemon) {
+    return fetch(pokemon.url).then((response) => response.json())
+}
+
+function getPokemon() {
+    const url = 'https://pokeapi.co/api/v2/pokemon';
+    return fetch(url)
+        .then((response) => response.json())
+        .then((jsonBody) => jsonBody.results)
+        .then((pokemonList) => pokemonList.map(getPokemonDetail))
+        .then((detailRequest) => Promise.all(detailRequest))
+        .then((pokemonDetails) => pokemonDetails)
+}
+
+getPokemon().then((pokemon) => console.log(pokemon)
+```
 
 ---
 

@@ -1,6 +1,4 @@
-# Desafios de Código - JavaScript
-
----
+# Desafios de Código - Exercite sua Lógica com JavaScript
 
 ## Desafio 1: "Tempo Estimado de Entrega"
 
